@@ -4,7 +4,7 @@
   "version": "0.5.2",
   "author": "Martyn Smith <martyn@dollyfish.net.nz>",
   "scripts": {
-    "test": "./node_modules/faucet/bin/cmd.js test/test-*.js",
+    "test": "tape test/test-*.js",
     "lint": "eslint ."
   },
   "contributors": [
@@ -27,7 +27,7 @@
   },
   "main": "lib/irc",
   "engines": {
-    "node": ">=14.0"
+    "node": ">=16.0"
   },
   "license": "GPL-3.0",
   "dependencies": {
