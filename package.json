@@ -5,7 +5,7 @@
   "author": "Martyn Smith <martyn@dollyfish.net.nz>",
   "scripts": {
     "test": "./node_modules/faucet/bin/cmd.js test/test-*.js",
-    "lint": "./node_modules/jscs/bin/jscs --preset=airbnb */*.js"
+    "lint": "eslint ."
   },
   "contributors": [
     "Fionn Kelleher <me@fionn.co>",
@@ -38,9 +38,11 @@
     "node-icu-charset-detector": "~0.2.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.38.0",
     "ansi-color": "0.2.1",
-    "faucet": "0.0.1",
-    "jscs": "1.9.0",
-    "tape": "^3.0.3"
+    "eslint": "^9.38.0",
+    "faucet": "0.0.4",
+    "globals": "^16.4.0",
+    "tape": "^5.9.0"
   }
 }

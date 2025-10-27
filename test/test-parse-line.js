@@ -8,7 +8,7 @@ test('irc.parseMessage', function(t) {
 
     Object.keys(checks).forEach(function(line) {
         var stripColors = false;
-        if (checks[line].hasOwnProperty('stripColors')) {
+        if (Object.prototype.hasOwnProperty.call(checks[line], 'stripColors')) {
             stripColors = checks[line].stripColors;
             delete checks[line].stripColors;
         }

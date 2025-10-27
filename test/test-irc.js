@@ -1,5 +1,3 @@
-var net = require('net');
-
 var irc = require('../lib/irc');
 var test = require('tape');
 
@@ -36,7 +34,7 @@ function runTests(t, isSecure, useSecureObject) {
             debug: true
         });
     } else {
-        var client = new irc.Client('localhost', 'testbot', {
+        client = new irc.Client('localhost', 'testbot', {
             secure: isSecure,
             selfSigned: true,
             port: port,
@@ -121,7 +119,7 @@ test ('opt.messageSplit used when set', function(t) {
     t.plan(group.length);
     group.forEach(function(item) {
         client.maxLineLength = item.length;
-        client._splitLongLines = function(words, maxLength, destination) {
+        client._splitLongLines = function(words, maxLength) {
             t.equal(maxLength, item.expected);
             return [words];
         }

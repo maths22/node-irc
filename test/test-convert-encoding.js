@@ -21,14 +21,7 @@ test('irc.Client.convertEncoding old', function(assert) {
     }.bind(bindTo);
 
     checks.causesException.forEach(function iterate(line) {
-        var causedException = false;
-        try {
-            convertEncoding(line);
-        } catch (e) {
-            causedException = true;
-        }
-
-        assert.equal(causedException, true, line + ' caused exception');
+        assert.throws(() => convertEncoding(line), true, line + ' caused exception');
     });
 
     assert.end();
@@ -38,15 +31,7 @@ test('irc.Client.convertEncoding', function(assert) {
     var convertEncoding = irc.Client.prototype.convertEncoding.bind(bindTo);
 
     checks.causesException.forEach(function iterate(line) {
-        var causedException = false;
-
-        try {
-            convertEncoding(line);
-        } catch (e) {
-            causedException = true;
-        }
-
-        assert.equal(causedException, false, line + ' didn\'t cause exception');
+        assert.doesNotThrow(() => convertEncoding(line), true, line + ' didn\'t cause exception');
     });
 
     assert.end();

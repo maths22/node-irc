@@ -1,5 +1,3 @@
-var net = require('net');
-
 var irc = require('../lib/irc');
 var test = require('tape');
 
