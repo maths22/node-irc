@@ -7,10 +7,29 @@ on:
     branches: [ master ]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js 22.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.x
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run linter
+      run: npm run-script lint
+
   test:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         node-version: [14.x, 16.x, 18.x, 20.x, 22.x]
 
@@ -29,10 +48,7 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Run linter
-      run: npm run-script lint
+      run: npm ci
 
     - name: Run tests
       run: npm test
