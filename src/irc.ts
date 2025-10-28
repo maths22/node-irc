@@ -922,8 +922,6 @@ export class Client extends EventEmitter {
         let buffer = Buffer.from('');
 
         const handleData = (chunk: Buffer | string) => {
-
-            console.log('got chunk, type:', typeof chunk);
             this.conn?.cyclingPingTimer?.notifyOfActivity();
 
             if (typeof (chunk) === 'string') {

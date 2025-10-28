@@ -1,7 +1,7 @@
 {
   "name": "@maths22/irc",
   "description": "An IRC client library for node",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": "Jacob Burroughs <jburroughs@instructure.com>",
   "scripts": {
     "build": "tsc",
