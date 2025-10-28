@@ -116,6 +116,7 @@ function copyValue<T>(source: T, target: T, key: keyof T) {
     target[key] = source[key];
 }
 
+// TODO eventemitter types
 export class Client extends EventEmitter {
     conn: Socket & {
         connected?: boolean;
