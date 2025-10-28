@@ -1,4 +1,4 @@
-var parseMessage  = require('../lib/parse_message');
+var parseMessage  = require('../lib/parse_message').default;
 var test = require('tape');
 
 var testHelpers = require('./helpers');
@@ -12,9 +12,9 @@ test('irc.parseMessage', function(t) {
             stripColors = checks[line].stripColors;
             delete checks[line].stripColors;
         }
-        t.equal(
-            JSON.stringify(checks[line]),
-            JSON.stringify(parseMessage(line, stripColors)),
+        t.deepEqual(
+            checks[line],
+            parseMessage(line, stripColors),
             line + ' parses correctly'
         );
     });

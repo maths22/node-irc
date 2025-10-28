@@ -4,7 +4,8 @@
   "version": "0.5.2",
   "author": "Martyn Smith <martyn@dollyfish.net.nz>",
   "scripts": {
-    "test": "tape test/test-*.js",
+    "build": "tsc",
+    "test": "npm run build && tape test/test-*.js",
     "lint": "eslint ."
   },
   "contributors": [
@@ -31,6 +32,7 @@
   },
   "license": "GPL-3.0",
   "dependencies": {
+    "debug": "^4.4.3",
     "irc-colors": "^1.1.0"
   },
   "optionalDependencies": {
@@ -39,10 +41,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^24.9.1",
     "ansi-color": "0.2.1",
     "eslint": "^9.38.0",
     "faucet": "0.0.4",
     "globals": "^16.4.0",
-    "tape": "^5.9.0"
+    "tape": "^5.9.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
   }
 }

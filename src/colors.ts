@@ -1,4 +1,4 @@
-var codes = {
+const codes = {
     white: '\u000300',
     black: '\u000301',
     dark_blue: '\u000302',
@@ -21,13 +21,16 @@ var codes = {
 
     reset: '\u000f'
 };
-exports.codes = codes;
+export { codes };
 
-function wrap(color, text, resetColor) {
-    if (codes[color]) {
+function isValidColor(color: string): color is keyof typeof codes {
+    return color in codes;
+}
+
+export function wrap(color: string, text: string, resetColor: string) {
+    if (isValidColor(color)) {
         text = codes[color] + text;
-        text += (codes[resetColor]) ? codes[resetColor] : codes.reset;
+        text += (isValidColor(resetColor)) ? codes[resetColor] : codes.reset;
     }
     return text;
 }
-exports.wrap = wrap;
